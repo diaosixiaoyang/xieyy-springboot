@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -54,5 +56,15 @@ class XieyySpringbootApplicationTests {
         System.out.println(age);
     }
 
+
+    @Test
+    public void test2() throws IOException {
+        ClassPathResource classPathResource = new ClassPathResource("lua/rateLimit.lua");
+        InputStream inputStream = classPathResource.getInputStream();
+
+        while (inputStream.read() != -1) {
+
+        }
+    }
 
 }

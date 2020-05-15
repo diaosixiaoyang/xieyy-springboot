@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -36,4 +38,13 @@ public class LimitStrategyService {
         redisTemplate.delete(lockKey);
         redisTemplate.opsForList().leftPushAll(lockKey, lockKeyList);
     }
+
+
+    public void executeLua() {
+        RedisScript redisScript = new DefaultRedisScript();
+        String scriptAsString = redisScript.getScriptAsString();
+        Object execute = redisTemplate.execute(redisScript, null, "");
+
+    }
+
 }

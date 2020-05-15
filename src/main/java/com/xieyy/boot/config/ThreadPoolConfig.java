@@ -23,14 +23,14 @@ public class ThreadPoolConfig {
     @Setter
     private int queueSize;
 
-    @Bean
-    public ExecutorService threadPoolExecutor() {
-        ThreadPoolExecutor executorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, new LinkedBlockingQueue<>(queueSize));
-        ThreadFactory factory = new TestThreadFactory("xieyy", "xyyp");
-        TestRejected testRejected = new TestRejected();
-        executorService.setRejectedExecutionHandler(testRejected);
-        testRejected.rejectedExecution(new TestRunnable(), executorService);
-        executorService.setThreadFactory(factory);
-        return executorService;
-    }
+//    @Bean
+//    public ExecutorService threadPoolExecutor() {
+//        ThreadPoolExecutor executorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, new LinkedBlockingQueue<>(queueSize));
+//        ThreadFactory factory = new TestThreadFactory("xieyy", "xyyp");
+//        TestRejected testRejected = new TestRejected();
+//        executorService.setRejectedExecutionHandler(testRejected);
+//        testRejected.rejectedExecution(new TestRunnable(), executorService);
+//        executorService.setThreadFactory(factory);
+//        return executorService;
+//    }
 }

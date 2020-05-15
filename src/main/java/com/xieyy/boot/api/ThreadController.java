@@ -12,8 +12,8 @@ import java.util.concurrent.ExecutorService;
 @RestController
 public class ThreadController {
 
-    @Autowired
-    private ExecutorService threadPoolExecutor;
+//    @Autowired
+//    private ExecutorService threadPoolExecutor;
 
     private static List<String> list = new ArrayList<>();
 
@@ -25,9 +25,9 @@ public class ThreadController {
 
     @GetMapping("/threadpool")
     public String threadPool() {
-        TestRunnable testCallable = new TestRunnable();
-        testCallable.setList(list);
-        threadPoolExecutor.submit(testCallable);
+//        TestRunnable testCallable = new TestRunnable();
+//        testCallable.setList(list);
+//        threadPoolExecutor.submit(testCallable);
         return "success";
     }
 }
